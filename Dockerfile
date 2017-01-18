@@ -64,6 +64,6 @@ ADD crontab /etc/cron.d/magento2-cron
 RUN chmod 0644 /etc/cron.d/magento2-cron
 RUN crontab -u www-data /etc/cron.d/magento2-cron
 
-#RUN git clone https://github.com/doravi/Magento2_clean_config.git temp \
-#	&& cp -r temp/* /var/www/html \
-#	&& rm -rf temp
+RUN git clone https://github.com/doravi/Magento2_clean_config.git temp \
+	&& cp -r temp/* /var/www/html \
+	&& rm -rf temp
