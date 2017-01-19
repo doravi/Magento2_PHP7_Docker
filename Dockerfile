@@ -64,6 +64,20 @@ ADD crontab /etc/cron.d/magento2-cron
 RUN chmod 0644 /etc/cron.d/magento2-cron
 RUN crontab -u www-data /etc/cron.d/magento2-cron
 
-RUN git clone https://github.com/doravi/Magento2_clean_config.git temp \
-	&& cp -r temp/* /var/www/html \
-	&& rm -rf temp
+# Run setup script
+RUN cd /var/www/html/bin
+RUN php magento setup:install --base-url=http://54.174.156.119/ \
+--db-host=172.17.0.2 --db-name=magento2 --db-user=root --db-password=rootpassword \
+--admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com \
+--admin-user=admin --admin-password=Gigya123 --language=en_US \
+--currency=USD --timezone=America/Chicago --cleanup-database \
+--sales-order-increment-prefix="ORD$" --session-save=db --use-rewrites=1
+
+#Get permissions
+RUN cd /var/www
+RUN chmod 777 -R html/
+
+# Install Gigya extension
+#RUN composer require gigya/magento2-im
+
+
