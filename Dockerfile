@@ -65,8 +65,7 @@ RUN chmod 0644 /etc/cron.d/magento2-cron
 RUN crontab -u www-data /etc/cron.d/magento2-cron
 
 # Run setup script
-RUN cd /var/www/html/bin
-RUN php magento setup:install --base-url=http://54.174.156.119/ \
+RUN php /var/www/html/bin/magento setup:install --base-url=http://54.174.156.119/ \
 --db-host=172.17.0.2 --db-name=magento2 --db-user=root --db-password=rootpassword \
 --admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com \
 --admin-user=admin --admin-password=Gigya123 --language=en_US \
