@@ -66,6 +66,7 @@ RUN crontab -u www-data /etc/cron.d/magento2-cron
 
 # Run setup script
 RUN php /var/www/html/bin/magento setup:install --base-url=http://54.211.138.9/ \
+--backend-frontname=admin \
 --db-host=172.30.0.200 --db-name=magento --db-user=root --db-password=Gigya123 \
 --admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com \
 --admin-user=admin --admin-password=Gigya123 --language=en_US \
