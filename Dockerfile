@@ -74,7 +74,6 @@ RUN php /var/www/html/bin/magento setup:install --base-url=http://54.211.138.9/ 
 
 #Get permissions
 RUN cd /var/www
-RUN chmod 777 -R html/
 RUN chmod -Rf 777 /var/
 
 # Install Gigya extension
