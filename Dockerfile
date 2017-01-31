@@ -65,13 +65,12 @@ RUN chmod 0644 /etc/cron.d/magento2-cron
 RUN crontab -u www-data /etc/cron.d/magento2-cron
 
 # Run setup script
-#RUN php /var/www/html/bin/magento setup:install --base-url=http://54.211.138.9/ \
-#--backend-frontname=admin \
-#--db-host=172.30.0.200 --db-name=magento --db-user=root --db-password=Gigya123 \
-#--admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com \
-#--admin-user=admin --admin-password=Gigya123 --language=en_US \
-#--currency=USD --timezone=America/Chicago --cleanup-database \
-#--sales-order-increment-prefix="ORD$" --session-save=db --use-rewrites=1
+RUN php /var/www/html/bin/magento setup:install --base-url=http://il0a-cms-docker1/ \
+--db-host=54.146.189.180 --db-name=magento --db-user=root --db-password=Gigya123 \
+--admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com \
+--admin-user=admin --admin-password=Gigya123 --language=en_US \
+--currency=USD --timezone=America/Chicago --cleanup-database \
+--sales-order-increment-prefix="ORD$" --session-save=db --use-rewrites=1
 
 #Get permissions
 RUN chmod -Rf 777 /var/www/html
