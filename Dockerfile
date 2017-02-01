@@ -76,6 +76,7 @@ RUN php /var/www/html/bin/magento setup:install --base-url=http://il0a-cms-docke
 RUN chmod -Rf 777 /var/www/html
 
 #set developer mode
+RUN php /var/www/html/bin/magento deploy:mode:set developer
 
 # Install Gigya extension
 #RUN composer require gigya/magento2-im
