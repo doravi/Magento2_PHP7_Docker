@@ -78,8 +78,8 @@ RUN chmod -Rf 777 /var/www/html
 #set developer mode
 RUN php /var/www/html/bin/magento deploy:mode:set developer
 
-COPY ./composer.json /var/www/html
-COPY ./key.text /var/www/html
+COPY ./composer.json /var/www/html/composer.json
+COPY ./key.text /var/www/html/key.text
 
 #Get permissions
 RUN chmod -Rf 777 /var/www/html
