@@ -39,7 +39,7 @@
         "zendframework/zend-validator": "~2.4.6",
         "zendframework/zend-crypt": "~2.4.6",
         "zendframework/zend-console": "~2.4.6",
-:%
+  
                 "lib/web/jquery/jquery.min.js",
                 "lib/web/jquery/jquery-migrate.js"
             ],
