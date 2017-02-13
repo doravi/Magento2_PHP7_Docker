@@ -1,4 +1,4 @@
-# Docker image for Magento 2
+# Docker image for Magento 2 test
 
 [![](https://images.microbadger.com/badges/image/alexcheng/magento2.svg)](http://microbadger.com/images/alexcheng/magento2)
 
