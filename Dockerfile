@@ -65,8 +65,8 @@ RUN chmod 0644 /etc/cron.d/magento2-cron
 RUN crontab -u www-data /etc/cron.d/magento2-cron
 
 # Run setup script
-RUN php /var/www/html/bin/magento setup:install --base-url=http://il0a-cms-docker1/ \
---db-host=54.146.189.180 --db-name=magento --db-user=root --db-password=Gigya123 \
+RUN php /var/www/html/bin/magento setup:install --base-url=http://magento.local.gigya.com \
+--db-host=172.17.0.1 --db-name=magento --db-user=root --db-password=Gigya123 \
 --admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com --backend-frontname=admin \
 --admin-user=admin --admin-password=Gigya123 --language=en_US \
 --currency=USD --timezone=America/Chicago --cleanup-database \
