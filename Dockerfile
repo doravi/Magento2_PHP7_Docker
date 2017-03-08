@@ -4,7 +4,7 @@ MAINTAINER Fu Cheng <alexcheng1982@gmail.com>
 
 RUN a2enmod rewrite
 
-ENV MAGENTO_VERSION 2.0.9
+ENV MAGENTO_VERSION 2.1.3
 
 RUN rm -rf /var/www/html/*
 RUN cd /tmp && curl https://codeload.github.com/magento/magento2/tar.gz/$MAGENTO_VERSION -o $MAGENTO_VERSION.tar.gz && tar xvf $MAGENTO_VERSION.tar.gz && mv magento2-$MAGENTO_VERSION/* magento2-$MAGENTO_VERSION/.htaccess /var/www/html
@@ -64,25 +64,7 @@ ADD crontab /etc/cron.d/magento2-cron
 RUN chmod 0644 /etc/cron.d/magento2-cron
 RUN crontab -u www-data /etc/cron.d/magento2-cron
 
-# Run setup script
-RUN php /var/www/html/bin/magento setup:install --base-url=http://magento.local.gigya.com \
---db-host=172.17.0.1 --db-name=magento --db-user=root --db-password=Gigya123 \
---admin-firstname=Magento --admin-lastname=User --admin-email=dor.av@gigya-inc.com --backend-frontname=admin \
---admin-user=admin --admin-password=Gigya123 --language=en_US \
---currency=USD --timezone=America/Chicago --cleanup-database \
---sales-order-increment-prefix="ORD$" --session-save=db --use-rewrites=1
 
-#Get permissions
-RUN chmod -Rf 777 /var/www/html
-
-#set developer mode
-RUN php /var/www/html/bin/magento deploy:mode:set developer
-
-COPY ./composer.json /var/www/html/
-COPY ./key.txt /var/www/html/
-
-#Get permissions
-RUN chmod -Rf 777 /var/www/html
 
 
 
